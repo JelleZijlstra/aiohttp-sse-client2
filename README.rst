@@ -6,6 +6,16 @@ project by Jason Hu. The motivations for the fork are:
 
 The fork will be retired if the upstream package comes back alive.
 
+Fork changelog
+--------------
+
+* 0.3.0 (February 7, 2023)
+  * Drop support for Python 3.6
+  * Support Python 3.10 and 3.11
+  * Include response body in exception for non-200 response codes
+
+Original README follows:
+
 ==========
 SSE Client
 ==========
