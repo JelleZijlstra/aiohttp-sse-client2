@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=aiohttp_sse_client
+set SPHINXPROJ=aiohttp_sse_client2
 
 if "%1" == "" goto help
 

@@ -43,7 +43,7 @@ class EventSource:
 
     .. code-block:: python
 
-        from aiohttp_sse_client import client as sse_client
+        from aiohttp_sse_client2 import client as sse_client
 
         async with sse_client.EventSource(
             'https://stream.wikimedia.org/v2/stream/recentchange'

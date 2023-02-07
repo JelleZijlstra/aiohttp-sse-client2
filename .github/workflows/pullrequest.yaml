@@ -32,7 +32,7 @@ jobs:
         pip install -r requirements_dev.txt
     - name: Lint with flake8
       run: |
-        flake8 aiohttp_sse_client
+        flake8 aiohttp_sse_client2
     - name: Install
       run: |
         pip install -e .
