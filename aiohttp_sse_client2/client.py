@@ -246,8 +246,10 @@ class EventSource:
 
         if response.status != 200:
             body = await response.read()
-            error_message = 'fetch {} failed with wrong response status: {}: {}'. \
+            error_message = (
+                'fetch {} failed with wrong response status: {}: {}'.
                 format(self._url, response.status, body)
+            )
             _LOGGER.error(error_message)
             await self._fail_connect()
             raise ConnectionAbortedError(error_message, body)
