@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
+import pytest
 
 from aiohttp_sse_client2 import client as sse_client
 
 from .const import WPT_SERVER
 
+@pytest.mark.asyncio
 async def test_event_data():
     """Test EventSource: lines and data parsing.
-    
+
     ..seealso: https://github.com/web-platform-tests/wpt/blob/master/
     eventsource/event-data.html
     """
@@ -29,9 +31,10 @@ async def test_event_data():
         counter += 1
 
 
+@pytest.mark.asyncio
 async def test_eventsource_close():
     """Test EventSource: close.
-    
+
     ..seealso: https://github.com/web-platform-tests/wpt/blob/master/
     eventsource/eventsource-close.htm
     """
@@ -44,7 +47,7 @@ async def test_eventsource_close():
 
     count = 0
     reconnected = False
-    
+
     def on_error():
         nonlocal count, reconnected
         if count == 1:
@@ -57,7 +60,7 @@ async def test_eventsource_close():
             assert source.ready_state == sse_client.READY_STATE_CLOSED
         else:
             assert False
-    
+
     async with sse_client.EventSource(
         WPT_SERVER + 'resources/reconnect-fail.py?id=' +
         str(datetime.utcnow().timestamp()),

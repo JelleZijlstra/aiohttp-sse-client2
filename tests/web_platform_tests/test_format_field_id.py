@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
 
+import pytest
 from pytest import fail
 
 from aiohttp_sse_client2 import client as sse_client
@@ -9,6 +10,7 @@ from aiohttp_sse_client2 import client as sse_client
 from .const import WPT_SERVER
 
 
+@pytest.mark.asyncio
 async def test_format_field_id():
     """Test EventSource: Last-Event-ID.
 
@@ -33,6 +35,7 @@ async def test_format_field_id():
                 break
 
 
+@pytest.mark.asyncio
 async def test_format_field_id_2():
     """Test EventSource: Last-Event-ID (2).
 
@@ -60,6 +63,7 @@ async def test_format_field_id_2():
                 fail("Unexpected counter {}".format(counter))
 
 
+@pytest.mark.asyncio
 async def test_format_field_id_null():
     """Test EventSource: U+0000 in id field.
 

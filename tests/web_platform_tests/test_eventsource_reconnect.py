@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
+import pytest
 
 from aiohttp_sse_client2 import client as sse_client
 
 from .const import WPT_SERVER
 
 
+@pytest.mark.asyncio
 async def test_eventsource_reconnect():
     """Test EventSource: reconnection.
 
@@ -22,6 +24,7 @@ async def test_eventsource_reconnect():
     await source.close()
 
 
+@pytest.mark.asyncio
 async def test_eventsource_reconnect_event():
     """Test EventSource: reconnection event.
 

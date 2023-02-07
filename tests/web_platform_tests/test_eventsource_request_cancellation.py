@@ -2,15 +2,17 @@
 # -*- coding: utf-8 -*-
 import asyncio
 from datetime import datetime, timedelta
+import pytest
 
 from aiohttp_sse_client2 import client as sse_client
 
 from .const import WPT_SERVER
 
 
+@pytest.mark.asyncio
 async def test_eventsource_request_cancellation():
     """Test EventSource: reconnection event.
-    
+
     ..seealso: https://github.com/web-platform-tests/wpt/blob/master/
     eventsource/eventsource-request-cancellation.htm
     """

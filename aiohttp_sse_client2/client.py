@@ -233,22 +233,26 @@ class EventSource:
             return
 
         if response.status >= 400 or response.status == 305:
-            error_message = 'fetch {} failed: {}'.format(
-                self._url, response.status)
+            body = await response.read()
+            error_message = 'fetch {} failed: {}: {!r}'.format(
+                self._url, response.status, body)
             _LOGGER.error(error_message)
 
             await self._fail_connect()
 
             if response.status in [305, 401, 407]:
-                raise ConnectionRefusedError(error_message)
-            raise ConnectionError(error_message)
+                raise ConnectionRefusedError(error_message, body)
+            raise ConnectionError(error_message, body)
 
         if response.status != 200:
-            error_message = 'fetch {} failed with wrong response status: {}'. \
-                format(self._url, response.status)
+            body = await response.read()
+            error_message = (
+                'fetch {} failed with wrong response status: {}: {}'.
+                format(self._url, response.status, body)
+            )
             _LOGGER.error(error_message)
             await self._fail_connect()
-            raise ConnectionAbortedError(error_message)
+            raise ConnectionAbortedError(error_message, body)
 
         if response.content_type != CONTENT_TYPE_EVENT_STREAM:
             error_message = \

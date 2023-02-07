@@ -8,6 +8,7 @@ from aiohttp_sse_client2 import client as sse_client
 from .const import WPT_SERVER
 
 
+@pytest.mark.asyncio
 async def test_rquest_accept():
     """Test EventSource: Accept header.
 
@@ -23,6 +24,7 @@ async def test_rquest_accept():
     await source.close()
 
 
+@pytest.mark.asyncio
 async def test_rquest_cache_control():
     """Test EventSource: Cache-Control.
 
@@ -38,7 +40,8 @@ async def test_rquest_cache_control():
     await source.close()
 
 
-async def test_rquest_redirect():
+@pytest.mark.asyncio
+async def test_request_redirect():
     """Test EventSource: redirect.
 
     ..seealso: https://github.com/web-platform-tests/wpt/blob/master/
@@ -66,7 +69,8 @@ async def test_rquest_redirect():
     await test(307)
 
 
-async def test_rquest_status_error():
+@pytest.mark.asyncio
+async def test_request_status_error():
     """Test EventSource: redirect.
 
     ..seealso: https://github.com/web-platform-tests/wpt/blob/master/
@@ -95,6 +99,7 @@ async def test_rquest_status_error():
     await test(503)
 
 
+@pytest.mark.asyncio
 async def test_request_post_to_connect():
     """Test EventSource option method for connection.
     """
