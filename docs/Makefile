@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = aiohttp_sse_client
+SPHINXPROJ    = aiohttp_sse_client2
 SOURCEDIR     = .
 BUILDDIR      = _build
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime, timedelta
 
-from aiohttp_sse_client import client as sse_client
+from aiohttp_sse_client2 import client as sse_client
 
 from .const import WPT_SERVER
 
