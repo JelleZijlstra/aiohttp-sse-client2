@@ -1,3 +1,11 @@
+This is a fork of the `aiohttp-sse-client <https://github.com/rtfol/aiohttp-sse-client>`__
+project by Jason Hu. The motivations for the fork are:
+
+* Better error messages when the request fails (`#190 <https://github.com/rtfol/aiohttp-sse-client>`__)
+* Update the library to support new Python versions
+
+The fork will be retired if the upstream package comes back alive.
+
 ==========
 SSE Client
 ==========
