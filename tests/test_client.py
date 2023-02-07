@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 """Tests for `aiohttp_sse_client` package."""
 import json
+import pytest
 
 from aiohttp_sse_client2 import client as sse_client
 
 
+@pytest.mark.asyncio
 async def test_basic_usage():
     """Test basic usage."""
     messages = []
