@@ -64,6 +64,7 @@ class EventSource:
                  on_open=None,
                  on_message=None,
                  on_error=None,
+                 last_event_id: str = '',
                  **kwargs):
         """Construct EventSource instance.
 
@@ -79,6 +80,8 @@ class EventSource:
         :param on_open: event handler for open event
         :param on_message: event handler for message event
         :param on_error: event handler for error event
+        :param last_event_id: specifies the last event ID string of the
+            EventSource object
         :param kwargs: keyword arguments will pass to underlying
             aiohttp request() method.
         """
@@ -99,7 +102,7 @@ class EventSource:
         self._reconnection_time = reconnection_time
         self._orginal_reconnection_time = reconnection_time
         self._max_connect_retry = max_connect_retry
-        self._last_event_id = ''
+        self._last_event_id = last_event_id
         self._kwargs = kwargs
         if 'headers' not in self._kwargs:
             self._kwargs['headers'] = MultiDict()
